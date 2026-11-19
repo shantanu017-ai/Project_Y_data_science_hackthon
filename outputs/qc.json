@@ -1,0 +1,34 @@
+{
+  "hourly_rows": 1487712,
+  "swap_rows_raw": 3877013,
+  "near_duplicates_removed": 0,
+  "swap_rows_clean": 3877013,
+  "file_sorted_by_ts": false,
+  "test_station_events": 62031,
+  "tz_bug_events_corrected": 139490,
+  "km_invalid": 15526,
+  "soc_out_over_100": 3698,
+  "date_range_corrected": [
+    "2024-01-01 00:00:33",
+    "2025-06-30 23:59:23"
+  ],
+  "event_type_counts": {
+    "swap_completed": 3645809,
+    "failed_no_charged_battery": 134389,
+    "abandoned_queue": 68533,
+    "cancelled_by_rider": 16712,
+    "failed_system_error": 11570
+  },
+  "tariff_counts": {
+    "PARTNER": 2565478,
+    "STD": 1095936,
+    "PEAK": 177879,
+    "OFFPEAK": 37720
+  },
+  "riders": 20000,
+  "tickets": 44000,
+  "home_city_variants": [
+    16,
+    6
+  ]
+}

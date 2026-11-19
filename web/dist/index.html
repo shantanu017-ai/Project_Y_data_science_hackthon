@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VoltRelay — Growth is real. Make it healthy.</title>
+<meta name="description" content="A data diagnostic of VoltRelay's battery-swapping network: 3.8M attempts, six cities, and the three operational leaks that decide whether the next rupee earns a return.">
+<meta name="theme-color" content="#f7f3ea">
+<meta property="og:title" content="VoltRelay — Growth is real. Make it healthy.">
+<meta property="og:description" content="3.8M swap attempts. 2.9× growth. 6.0× failures. A diagnostic of heat, battery wear, partner economics and rider retention.">
+<meta property="og:type" content="website">
+<script>
+  try {
+    if (localStorage.getItem("voltrelay-theme") === "dark") {
+      document.documentElement.setAttribute("data-theme", "dark");
+    }
+  } catch (e) {}
+</script>
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="#top" aria-label="VoltRelay diagnostic, back to top">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-word">VOLTRELAY</span>
+      <span class="brand-sub">OPERATIONS DIAGNOSTIC</span>
+    </a>
+    <nav class="nav-links" aria-label="Sections">
+      <a href="#summary">Summary</a>
+      <a href="#heat">Heat</a>
+      <a href="#batteries">Batteries</a>
+      <a href="#economics">Economics</a>
+      <a href="#retention">Retention</a>
+      <a href="#support">Support</a>
+      <a href="#actions">Actions</a>
+    </nav>
+    <button class="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false">
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M18.7 5.3l-1.6 1.6M6.9 17.1l-1.6 1.6"/></svg>
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M20 14.4A8.4 8.4 0 0 1 9.6 4a8.4 8.4 0 1 0 10.4 10.4Z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <div id="top"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="shell">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Operations diagnostic · Synthetic dataset · Jan 2024 — Jun 2025</p>
+          <h1>Growth is real.<br><em>Make it healthy.</em></h1>
+          <p class="lede">VoltRelay nearly tripled completed swaps — and made six times as many failed attempts. This is the evidence trail from 3.8 million attempts to the three leaks that decide whether the next rupee earns a return.</p>
+          <div class="hero-meta">
+            <span>3.81M swap attempts</span>
+            <span>6 Indian cities</span>
+            <span>8 source tables</span>
+            <span>44k support tickets</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn" href="#summary">Read the diagnosis</a>
+            <a class="btn ghost" href="assets/downloads/VoltRelay_Data_Analytics_Hackathon.ipynb" download>Open the notebook</a>
+          </div>
+        </div>
+
+        <aside class="verdict" aria-label="Executive verdict">
+          <p class="eyebrow">The verdict</p>
+          <h2>Three moves before the next cabinet.</h2>
+          <ol>
+            <li>
+              <span class="n">01</span>
+              <span class="what">Cool the Gen1 fleet
+                <span class="why">17.3% of all failures are heat-attributable; 121 of 138 paired stations get worse when hot.</span>
+              </span>
+            </li>
+            <li>
+              <span class="n">02</span>
+              <span class="what">Tighten battery acceptance
+                <span class="why">One supplier's 2W packs wore out three times faster. ₹12.7M of wear was avoidable.</span>
+              </span>
+            </li>
+            <li>
+              <span class="n">03</span>
+              <span class="what">Reprice the largest partner
+                <span class="why">549,390 swaps at ₹6.17 contribution — against a ₹16.53 network average.</span>
+              </span>
+            </li>
+          </ol>
+          <p class="not">NOT YET → another station wave</p>
+        </aside>
+      </div>
+
+      <div class="stat-rail" aria-label="Headline figures">
+        <div class="stat">
+          <div class="v"><span data-to="2.9" data-dec="1">2.9</span>×</div>
+          <div class="l">Completed swaps<br>Jan 2024 → Jun 2025</div>
+        </div>
+        <div class="stat accent">
+          <div class="v"><span data-to="6.0" data-dec="1">6.0</span>×</div>
+          <div class="l">Failed attempts<br>4,770 → 28,523</div>
+        </div>
+        <div class="stat accent">
+          <div class="v"><span data-to="17.3" data-dec="1">17.3</span>%</div>
+          <div class="l">Failures attributable<br>to heat above 35°C</div>
+        </div>
+        <div class="stat sage">
+          <div class="v">₹<span data-to="12.7" data-dec="1">12.7</span>M</div>
+          <div class="l">Avoidable 2W wear<br>Kyron lots vs peers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 SUMMARY -->
+  <section id="summary" aria-labelledby="summary-title">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">01 / NETWORK</div>
+        <div>
+          <span class="kicker">Performance over time</span>
+          <h2 id="summary-title">Volume is not health.</h2>
+          <p class="lede">Completed swaps grew 2.9×. Failures grew 6.0×. Revenue per swap barely moved after the July 2024 price rise, and margin improved because fixed cost was spread over more swaps — not because the pricing model got stronger.</p>
+        </div>
+      </div>
+
+      <figure class="plate reveal">
+        <div class="frame">
+          <img src="assets/charts/01_kpi_growth.png" alt="Four-panel monthly chart: completed swaps rising from about 104k to 303k; failures rising from 4.8k to 28.5k; failure rate rising from 4.4% to 8.6%; contribution margin per swap rising from ₹6.20 to ₹20.47 with a step change in July 2024." width="1600" height="1000" loading="eager" decoding="async">
+        </div>
+        <figcaption><b>FIG 01</b> Monthly network performance, Jan 2024 — Jun 2025. Synthetic VoltRelay dataset.</figcaption>
+      </figure>
+
+      <div class="dont">
+        <div class="note reveal">
+          <h3>What improved</h3>
+          <p>Contribution margin per swap rose from ₹6.20 to ₹20.47. Energy cost fell from ₹22.01 to ₹17.03 and station cost per swap from ₹20.38 to ₹11.68. Total contribution reached ₹59.29M on ₹229.2M revenue — a 25.9% margin.</p>
+        </div>
+        <div class="note reveal">
+          <h3>What broke</h3>
+          <p>Failures rose from 4,770 to 28,523 a month and the failure rate from 4.41% to 8.60%. Battery wear per swap climbed from ₹11.30 to ₹15.77. The network is buying margin with utilisation while service quality deteriorates.</p>
+        </div>
+      </div>
+
+      <blockquote class="callout reveal">
+        “Four metrics, four different stories. A growth deck would show the first line and stop.”
+        <span>The trade has a ceiling: every extra swap adds wear and queue pressure before it adds profit. The rest of this page follows the three constraints — heat, batteries, partner economics — and the retention cost they create.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 02 HEAT -->
+  <section id="heat" aria-labelledby="heat-title">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">02 / SERVICE</div>
+        <div>
+          <span class="kicker">Failures and rider experience</span>
+          <h2 id="heat-title">The failure is physical.</h2>
+          <p class="lede">Heat does not just slow charging. It removes batteries from circulation, lengthens queues, and pushes riders into failed attempts. The effect is measurable, and it is concentrated in first-generation cabinets.</p>
+        </div>
+      </div>
+
+      <div class="mechanism reveal" aria-label="Heat mechanism, Gen1 versus Gen3 at 45 degrees Celsius and above">
+        <div class="step">
+          <div class="s-num">CONDITION</div>
+          <div class="s-val">45°C+</div>
+          <div class="s-lab">Ambient heat at network stations during peak summer</div>
+        </div>
+        <div class="step hot">
+          <div class="s-num">GEN 1 · RECHARGE</div>
+          <div class="s-val">156 min</div>
+          <div class="s-lab">Minutes to recharge, versus 44 minutes for Gen3</div>
+        </div>
+        <div class="step hot">
+          <div class="s-num">GEN 1 · INVENTORY</div>
+          <div class="s-val">3.1</div>
+          <div class="s-lab">Packs in rotation per cabinet, versus 9.3 for Gen3</div>
+        </div>
+        <div class="step hot">
+          <div class="s-num">GEN 1 · OUTCOME</div>
+          <div class="s-val">15.3%</div>
+          <div class="s-lab">Failed attempts, versus 5.1% on Gen3</div>
+        </div>
+      </div>
+
+      <div class="plate-grid">
+        <figure class="plate reveal">
+          <div class="frame">
+            <img src="assets/charts/02_heat_curve.png" alt="Line chart of failure rate against maximum daily temperature: Gen1 failures rise steeply above 35°C while Gen3 failures rise much less." width="1400" height="900" decoding="async">
+          </div>
+          <figcaption><b>FIG 02</b> Failure rate by maximum daily temperature and charger generation.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="frame">
+            <img src="assets/charts/03_gen_mechanism.png" alt="Chart showing the heat mechanism: Gen1 cabinets take longer to recharge, keep fewer packs in rotation, and fail more often than Gen3." width="1400" height="900" decoding="async">
+          </div>
+          <figcaption><b>FIG 03</b> The mechanism: recharge time, packs in rotation and failure by generation.</figcaption>
+        </figure>
+      </div>
+
+      <figure class="plate plate-wide reveal">
+        <div class="frame">
+          <img src="assets/charts/04_city_cx.png" alt="City-level chart comparing hot-day and cool-day failure or experience gaps; Jaipur, Delhi and Hyderabad show the widest gaps." width="1800" height="900" decoding="async">
+        </div>
+        <figcaption><b>FIG 04</b> The heat gap by city. The largest gaps sit in Jaipur, Delhi and Hyderabad.</figcaption>
+      </figure>
+
+      <blockquote class="callout reveal">
+        “39,445 excess failures. 17.3% of the total. About ₹2.5M of forgone revenue.”
+        <span>At the station level, 121 of 138 locations with both hot and cool days performed worse on hot days. Same station, same riders, different temperature. The comparison is stratified within vehicle class and peak hour, so the heat effect is not a demand-mix artifact.</span>
+      </blockquote>
+
+      <div class="dont">
+        <div class="note reveal">
+          <h3>The fix is mechanical</h3>
+          <p>Shade and cross-flow ventilation for Gen1 cabinets, charge-current caps during the hottest hours, and pre-cooling before the 12:00–17:00 peak. These are retrofits, not a new network.</p>
+        </div>
+        <div class="note reveal">
+          <h3>Where to start</h3>
+          <p>Rank Gen1 cabinets by hot-day excess failures. Jaipur, Delhi and Hyderabad show the widest city gaps; the top twenty stations carry enough volume to prove the retrofit in one summer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 BATTERIES -->
+  <section id="batteries" aria-labelledby="batteries-title">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">03 / BATTERY</div>
+        <div>
+          <span class="kicker">Battery health and supplier quality</span>
+          <h2 id="batteries-title">One supplier, ₹12.7M.</h2>
+          <p class="lede">Kyron's 2W packs entered service like any other lot and then wore out roughly three times faster per swap. Every one of its 1,385 two-wheeler packs is now retired.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <div class="reveal">
+          <div class="table-wrap">
+            <table>
+              <caption class="small" style="text-align:left; padding-bottom:10px;">Kyron 2W packs versus peer 2W packs in service over the same period. “Wear” is purchase cost × SOH loss ÷ completed cycles.</caption>
+              <thead>
+                <tr><th scope="col">Metric</th><th scope="col">Kyron 2W</th><th scope="col">Peer 2W</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>Wear per swap</td><td class="num bad">₹30.79</td><td class="num good">₹9.56</td></tr>
+                <tr><td>Swaps per pack</td><td class="num bad">402</td><td class="num good">643</td></tr>
+                <tr><td>Tickets per 1,000 swaps</td><td class="num bad">13.24</td><td class="num good">7.55</td></tr>
+                <tr><td>Low-range tickets per 1,000</td><td class="num bad">2.44</td><td class="num good">1.04</td></tr>
+                <tr><td>Average SOH at retirement</td><td class="num bad">60.5%</td><td class="num">still in service</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="small" style="margin-top:12px;">1,385 Kyron 2W packs retired. Avoidable wear versus peer economics: approximately ₹12.7M.</p>
+        </div>
+        <div class="note reveal">
+          <h3>This is a lot problem, not a chemistry problem.</h3>
+          <p>Kyron's early 3W lots averaged 69.5% SOH while its later 3W lots averaged 86.5%. Same supplier, same chemistry, different manufacturing lots. The 2W failure is specific enough to quarantine at the lot level — KY-2407, KY-2408 and KY-2409 — rather than condemning the category.</p>
+        </div>
+      </div>
+
+      <div class="plate-grid" style="margin-top:var(--gap);">
+        <figure class="plate reveal">
+          <div class="frame">
+            <img src="assets/charts/05_battery.png" alt="Chart of 2W range in kilometres against battery state of health: range falls from about 65 km at 90%+ SOH to about 43 km at 60–70% SOH." width="1400" height="900" decoding="async">
+          </div>
+          <figcaption><b>FIG 05</b> Range collapses with state of health: 65 km at 90%+ versus 43 km at 60–70%.</figcaption>
+        </figure>
+        <figure class="plate reveal">
+          <div class="frame">
+            <img src="assets/charts/06_kyron_cost.png" alt="Bar chart of support tickets per thousand swaps by supplier, with Kyron highlighted as the highest and low-range tickets shown alongside." width="1400" height="900" decoding="async">
+          </div>
+          <figcaption><b>FIG 06</b> Kyron generates 34.2% of low-range tickets on 18.2% of swaps.</figcaption>
+        </figure>
+      </div>
+
+      <blockquote class="callout reveal">
+        “Bad packs do not just cost money. They become a rider's daily range anxiety.”
+        <span>Low-range tickets run 2.44 per thousand swaps on Kyron against roughly 1.04 on peer packs. The support queue confirms what the wear model predicts: the battery is the product, and lot quality is the constraint.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 04 ECONOMICS -->
+  <section id="economics" aria-labelledby="economics-title">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">04 / ECONOMICS</div>
+        <div>
+          <span class="kicker">Pricing and partner value</span>
+          <h2 id="economics-title">The largest partner is the weakest.</h2>
+          <p class="lede">ZipDrop accounts for 549,390 completed swaps — about 15% of the network — at ₹6.17 contribution per swap. FeastFly earns ₹16.54. The network average is ₹16.53.</p>
+        </div>
+      </div>
+
+      <div class="table-wrap wide reveal" tabindex="0" role="region" aria-label="Partner economics table, scrollable on narrow screens">
+        <table>
+          <caption class="small" style="text-align:left; padding-bottom:10px;">Partner economics on completed swaps. Revenue per swap for ZipDrop fell from ₹57.48 to ₹48.64.</caption>
+          <thead>
+            <tr><th scope="col">Segment</th><th scope="col">Completed swaps</th><th scope="col">Revenue / swap</th><th scope="col">Contribution / swap</th><th scope="col">Total contribution</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><strong>ZipDrop</strong></td><td class="num">549,390</td><td class="num">₹48.64</td><td class="num bad">₹6.17</td><td class="num">₹3.39M</td></tr>
+            <tr><td><strong>FeastFly</strong></td><td class="num">—</td><td class="num">—</td><td class="num good">₹16.54</td><td class="num">₹8.54M</td></tr>
+            <tr><td><strong>Network</strong></td><td class="num">3,586,675</td><td class="num">₹64.94</td><td class="num">₹16.53</td><td class="num">₹59.29M</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="scroll-hint small">Swipe the table to see all columns →</p>
+
+      <figure class="plate plate-wide reveal">
+        <div class="frame">
+          <img src="assets/charts/07_margin_waterfall.png" alt="Waterfall chart from ₹6.20 to ₹20.47 contribution per swap: revenue +₹5.05, energy +₹4.98, battery wear −₹4.47, station cost +₹8.71." width="1800" height="900" decoding="async">
+        </div>
+        <figcaption><b>FIG 07</b> What moved contribution per swap between Jan 2024 and Jun 2025. Station leverage is dilution, not operating efficiency.</figcaption>
+      </figure>
+
+      <figure class="plate plate-wide reveal">
+        <div class="frame">
+          <img src="assets/charts/08_partner_value.png" alt="Scatter chart of partner contribution per swap against volume, showing ZipDrop as a large-volume, low-margin outlier below the network average." width="1800" height="900" decoding="async">
+        </div>
+        <figcaption><b>FIG 08</b> Partner contribution per swap versus volume. ZipDrop sits below the network average at scale.</figcaption>
+      </figure>
+
+      <div class="dont">
+        <div class="note reveal">
+          <h3>The price rise worked — partly</h3>
+          <p>Revenue per swap added ₹5.05 and energy efficiency added ₹4.98. Wear took back ₹4.47. The remaining ₹8.71 came from spreading station rent and maintenance over more completed swaps; that lever flattens as growth matures.</p>
+        </div>
+        <div class="note reveal">
+          <h3>Peak pricing is an untested lever</h3>
+          <p>The PEAK tariff earns ₹41.29 per swap against ₹19.81 on standard, but it runs only in Bengaluru and Pune across 163,922 swaps. Every other city is a controlled expansion opportunity, not a pricing problem to guess at.</p>
+        </div>
+      </div>
+
+      <blockquote class="callout reveal">
+        “ZipDrop is not a bad customer. It is an underpriced one.”
+        <span>A volume commitment, a per-swap floor and pass-through of battery wear turn a ₹6.17 contribution into a defensible account. The alternative — letting the discount compound while wear rises — is how growth becomes a subsidy.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 05 RETENTION -->
+  <section id="retention" aria-labelledby="retention-title">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">05 / RETENTION</div>
+        <div>
+          <span class="kicker">Root cause of new-rider churn</span>
+          <h2 id="retention-title">Churn is downstream.</h2>
+          <p class="lede">Conditioning on late-month activity removes the mechanical link between early volume and retention. Among riders still active in days 22–30, D60 retention falls from 96.9% with no early failures to 90.4% above 20% — a 5.6-point gap.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <figure class="plate reveal">
+          <div class="frame">
+            <img src="assets/charts/09_retention.png" alt="Left panel: D60 retention falls from 96.9% at 0% early failure exposure to 90.4% above 20%. Right panel: cohort retention stable near 86% with later cohorts lower and partial-window caveats." width="1400" height="900" decoding="async">
+          </div>
+          <figcaption><b>FIG 09</b> D60 retention by failure exposure and by signup cohort.</figcaption>
+        </figure>
+        <div>
+          <div class="note reveal" style="margin-bottom:var(--gap);">
+            <h3>Exposure, not a single bad day</h3>
+            <p>The measured window is clean: failures in days 0–21, activity in days 22–30 as the sample condition, retention in days 31–60. Riders whose first-ever attempt failed were no less likely to return. It is repeated failure that predicts churn.</p>
+          </div>
+          <div class="note reveal" style="margin-bottom:var(--gap);">
+            <h3>The size of the effect</h3>
+            <p>15.6% of active riders experienced more than 10% failures in their first three weeks. In a logistic model controlling for usage, wait time, SOH, city, plan and channel, each additional 10 percentage points of failure exposure carries an odds ratio of 0.64 (95% CI 0.55–0.73; AUC 0.63).</p>
+          </div>
+          <div class="note reveal">
+            <h3>What to watch</h3>
+            <p>D60 retention is stable near 86% across cohorts, then reads 81.7% for April 2025 and 77.5% for May 2025. Those two cohorts have truncated observation windows, so treat the dip as a watch item, not a finding — and recheck it after the heat season.</p>
+          </div>
+        </div>
+      </div>
+
+      <blockquote class="callout reveal">
+        “Riders forgive a bad day. They do not forgive a bad month.”
+        <span>The retention model cannot prove that failures cause churn — it is observational. It does show that the association survives controls for volume, wait time and rider mix, and that it is concentrated in riders who keep failing.</span>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- 06 SUPPORT -->
+  <section id="support" aria-labelledby="support-title">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">06 / VOICE OF RIDER</div>
+        <div>
+          <span class="kicker">Support tickets as a sensor</span>
+          <h2 id="support-title">Support sees the symptom.</h2>
+          <p class="lede">44,000 tickets. One in eight unresolved. 16 hours mean resolution. A 3.55 CSAT. The text names the same three failures the operations data finds: no charged battery, long queues and sudden range loss.</p>
+        </div>
+      </div>
+
+      <figure class="plate reveal">
+        <div class="frame">
+          <img src="assets/charts/10_support.png" alt="Support ticket breakdown: no battery available is the largest category, followed by low range and queue-related complaints; unresolved and duplicate shares are shown." width="1800" height="900" decoding="async">
+        </div>
+        <figcaption><b>FIG 10</b> Ticket categories, unresolved share and duplicate share across 44,000 tickets.</figcaption>
+      </figure>
+
+      <div class="stat-rail reveal" aria-label="Support metrics" style="margin-top:var(--gap); border-top:1px solid var(--site-border);">
+        <div class="stat"><div class="v">44<span>k</span></div><div class="l">Support tickets</div></div>
+        <div class="stat accent"><div class="v"><span data-to="11.8" data-dec="1">11.8</span>%</div><div class="l">Unresolved</div></div>
+        <div class="stat"><div class="v"><span data-to="16" data-dec="0">16</span>h</div><div class="l">Mean resolution</div></div>
+        <div class="stat"><div class="v"><span data-to="3.55" data-dec="2">3.55</span></div><div class="l">CSAT out of 5</div></div>
+      </div>
+
+      <div class="split" style="margin-top:var(--gap);">
+        <div class="quote-grid">
+          <div class="quote reveal">
+            <q>No charged battery at the station. I waited twenty minutes and left.</q>
+            <cite>Representative rider paraphrase · synthetic comments</cite>
+          </div>
+          <div class="quote reveal">
+            <q>The range dropped suddenly. I had to stop twice on the way.</q>
+            <cite>Representative rider paraphrase · synthetic comments</cite>
+          </div>
+          <div class="quote reveal">
+            <q>Long queue at the swap station. Only one slot was working.</q>
+            <cite>Representative rider paraphrase · synthetic comments</cite>
+          </div>
+          <div class="quote reveal">
+            <q>My ticket was closed without anyone telling me what was fixed.</q>
+            <cite>Representative rider paraphrase · synthetic comments</cite>
+          </div>
+        </div>
+        <div class="note reveal">
+          <h3>Read tickets as telemetry</h3>
+          <p>11,647 tickets are tagged “no battery available”; 2,887 of those mention a queue. 6,636 report low range. The top categories map to inventory, heat and battery health — not to agent effort. Use the text to locate the failing station, not to score the support team.</p>
+          <p style="margin-top:12px;">Support is a lagging indicator. By the time a rider writes in, the swap has already failed and the alternative was likely a petrol ride.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 07 ACTIONS -->
+  <section id="actions" aria-labelledby="actions-title">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">07 / DECISIONS</div>
+        <div>
+          <span class="kicker">Where the next rupee goes</span>
+          <h2 id="actions-title">Fix the leaks before filling the tank.</h2>
+          <p class="lede">Six moves, ranked by evidence and speed to impact. Each has a named owner metric so the next review is about results, not activity.</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="action reveal">
+          <div class="a-num">01</div>
+          <div>
+            <h3>Cool the Gen1 fleet</h3>
+            <p>17.3% of failures are heat-attributable; 121 of 138 paired stations worsen when hot. At 45°C+, Gen1 cabinets recharge in 156 minutes and fail at 15.3%.</p>
+          </div>
+          <div><p><strong>Move:</strong> shade, airflow, charge-current caps and pre-cooling at the top twenty Gen1 stations in Jaipur, Delhi and Hyderabad.</p></div>
+          <div class="kpi"><b>90-day KPI</b>Hot-day failure 15.3% → below 8%; excess failures −50%</div>
+        </div>
+
+        <div class="action reveal">
+          <div class="a-num">02</div>
+          <div>
+            <h3>Quarantine Kyron lots</h3>
+            <p>Kyron 2W wear is ₹30.79 per swap against ₹9.56 for peers. All 1,385 packs are retired; the avoidable wear bill is about ₹12.7M.</p>
+          </div>
+          <div><p><strong>Move:</strong> block lots KY-2407, KY-2408 and KY-2409 from dispatch; add capacity, internal-resistance and thermal-rise checks at goods-in.</p></div>
+          <div class="kpi"><b>90-day KPI</b>Zero Kyron 2W packs in rotation; low-range tickets −40%</div>
+        </div>
+
+        <div class="action reveal">
+          <div class="a-num">03</div>
+          <div>
+            <h3>Reprice ZipDrop</h3>
+            <p>549,390 swaps at ₹6.17 contribution, against ₹16.53 network-wide. Revenue per swap has already fallen from ₹57.48 to ₹48.64.</p>
+          </div>
+          <div><p><strong>Move:</strong> volume commitment, per-swap floor and battery-wear pass-through at renewal. Protect service levels rather than the discount.</p></div>
+          <div class="kpi"><b>90-day KPI</b>Contribution ≥ ₹12 per swap; volume loss under 5%</div>
+        </div>
+
+        <div class="action reveal">
+          <div class="a-num">04</div>
+          <div>
+            <h3>Expand PEAK pricing</h3>
+            <p>PEAK earns ₹41.29 per swap versus ₹19.81 standard, but operates only in Bengaluru and Pune on 163,922 swaps.</p>
+          </div>
+          <div><p><strong>Move:</strong> six-week pilot in Delhi and Mumbai, capped at four peak hours a day, with off-peak cannibalisation monitored weekly.</p></div>
+          <div class="kpi"><b>90-day KPI</b>Incremental contribution ≥ ₹3M; off-peak volume −3% or better</div>
+        </div>
+
+        <div class="action reveal">
+          <div class="a-num">05</div>
+          <div>
+            <h3>Cut queue abandonment</h3>
+            <p>Abandonment is 30% of failures. The 90th-percentile wait is 1,088 seconds; riders lose an estimated 14,642 hours, and about 90% of abandoners never complete that swap.</p>
+          </div>
+          <div><p><strong>Move:</strong> live wait time in the app, reserve-a-pack, single-slot alerting, and staffing aligned to the 17:00–20:00 peak.</p></div>
+          <div class="kpi"><b>90-day KPI</b>P90 wait under 600 seconds; abandonment −30%</div>
+        </div>
+
+        <div class="action reveal">
+          <div class="a-num">06</div>
+          <div>
+            <h3>Run station scorecards</h3>
+            <p>Failures concentrate. The same 138 paired stations expose the heat gap, and 58% of all failures are empty cabinets while 30% are abandoned queues.</p>
+          </div>
+          <div><p><strong>Move:</strong> one weekly scorecard per station combining hot-day failures, queue wait, charged-pack availability and low-range tickets. Retrofit the worst twenty first.</p></div>
+          <div class="kpi"><b>90-day KPI</b>Top-20 stations: failures −25%; charged-pack availability above 95%</div>
+        </div>
+      </div>
+
+      <div class="timeline reveal" aria-label="Thirty, sixty and ninety day plan">
+        <div class="phase">
+          <div class="p-when">DAYS 0–30</div>
+          <h4>Stop the bleeding</h4>
+          <p>Quarantine Kyron lots. Cap charge current on Gen1 during hot hours. Publish the daily station scorecard. Open the ZipDrop renegotiation.</p>
+        </div>
+        <div class="phase">
+          <div class="p-when">DAYS 31–60</div>
+          <h4>Prove the mechanism</h4>
+          <p>Retrofit the first twenty Gen1 stations. Launch the Delhi and Mumbai PEAK pilots. Ship live wait times and reserve-a-pack. Go live with goods-in battery testing.</p>
+        </div>
+        <div class="phase">
+          <div class="p-when">DAYS 61–90</div>
+          <h4>Scale what worked</h4>
+          <p>Roll out retrofits by measured lift. Sign partner terms. Retire the worst remaining packs. Re-run the retention cohort and publish unit economics by station.</p>
+        </div>
+      </div>
+
+      <div class="dont">
+        <div class="note reveal">
+          <h3>Not yet: another station wave</h3>
+          <p>Station cost per swap is falling because volume is spreading fixed cost. Adding cabinets before fixing failure adds fixed cost, adds wear and does not fix the leak. Capacity is the reward for reliability, not a substitute for it.</p>
+        </div>
+        <div class="note good reveal">
+          <h3>Not ever: judging support on ticket volume</h3>
+          <p>The ticket mix is an operational signal. Fewer tickets is a good outcome only when failures and range loss fall — otherwise it can simply mean riders stopped bothering to report.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 08 METHOD -->
+  <section id="method" aria-labelledby="method-title" style="border-bottom:0;">
+    <div class="shell">
+      <div class="section-head reveal">
+        <div class="section-num">08 / METHOD</div>
+        <div>
+          <span class="kicker">Reproducibility and limits</span>
+          <h2 id="method-title">How this was built.</h2>
+          <p class="lede">Every figure on this page comes from the provided synthetic dataset. The notebook runs top-to-bottom and regenerates the tables, charts and headline figures.</p>
+        </div>
+      </div>
+
+      <div class="method">
+        <div class="m-item reveal">
+          <h3>Data</h3>
+          <p>Eight source tables: 3.8M swap attempts, stations, riders, batteries, fleet partners, city context, hourly station status and 44k support tickets. January 2024 to June 2025, six cities.</p>
+        </div>
+        <div class="m-item reveal">
+          <h3>Cleaning</h3>
+          <p>Corrected a +330-minute clock error on firmware v3.2.0 (139,490 events), deduplicated offline retries, removed 62,031 test-station events, normalised six city spellings and flagged valid trip distances.</p>
+        </div>
+        <div class="m-item reveal">
+          <h3>Model</h3>
+          <p>Full contribution margin: revenue − energy − battery wear − station fixed cost per completed swap. Heat baseline stratified at under 35°C within vehicle class and peak hour. Retention uses a fixed 0–21 / 22–30 / 31–60 day window with a logistic model and bootstrap CI.</p>
+        </div>
+        <div class="m-item reveal">
+          <h3>Limits</h3>
+          <p>Synthetic data; findings are illustrative, not a real company. Observational associations, not causal experiments. Wear uses a median fallback for packs with fewer than 50 cycles. Late-2025 cohort windows are truncated.</p>
+        </div>
+      </div>
+
+      <div class="downloads reveal">
+        <a class="btn" href="assets/downloads/VoltRelay_Data_Analytics_Hackathon.ipynb" download>Download the notebook</a>
+        <a class="btn ghost" href="assets/downloads/VoltRelay_Analysis_Report.md" download>Read the full report</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="shell">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#top" aria-label="Back to top" style="margin-bottom:14px;">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span class="brand-word">VOLTRELAY</span>
+        </a>
+        <p>A diagnostic built for the Gradient Learnings Data Analytics Hackathon. The question was not whether the network grew. It was whether the growth is worth repeating.</p>
+      </div>
+      <div>
+        <p class="mono" style="margin-bottom:10px;">Sections</p>
+        <div class="footer-links">
+          <a href="#summary">Network performance</a>
+          <a href="#heat">Heat and failures</a>
+          <a href="#batteries">Battery quality</a>
+          <a href="#economics">Partner economics</a>
+        </div>
+      </div>
+      <div>
+        <p class="mono" style="margin-bottom:10px;">Evidence</p>
+        <div class="footer-links">
+          <a href="#retention">Retention model</a>
+          <a href="#support">Support tickets</a>
+          <a href="#actions">Action plan</a>
+          <a href="#method">Method and limits</a>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer">
+      <span>SYNTHETIC DATASET · SEED 59500 · JAN 2024 — JUN 2025</span>
+      <span>ALL FIGURES DERIVED FROM PROVIDED DATA · NO REAL COMPANIES OR RIDERS</span>
+      <span>© <span id="year">2025</span> · ANALYSIS AND SITE BY THE AUTHOR</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

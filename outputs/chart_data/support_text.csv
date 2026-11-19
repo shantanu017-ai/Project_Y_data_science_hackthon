@@ -1,0 +1,7 @@
+category,n,queue_mentions,range_mentions,money_mentions,battery_mentions
+no_battery_available,11647,2887.0,0.0,0.0,7564.0
+other,9484,0.0,0.0,0.0,0.0
+low_range,6636,0.0,4521.0,0.0,2092.0
+app_issue,5787,0.0,0.0,0.0,0.0
+long_queue,5731,5731.0,0.0,0.0,0.0
+billing_dispute,4715,0.0,0.0,3156.0,0.0

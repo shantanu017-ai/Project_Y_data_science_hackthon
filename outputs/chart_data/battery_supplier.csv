@@ -1,0 +1,7 @@
+supplier,pack_type,packs,current_soh,swaps_per_pack,retired_pct
+Amptek,2W_2.1kWh,1098,80.0,643.0,0.0
+Amptek,3W_4.8kWh,209,86.5,377.0,0.0
+Cellora,2W_2.1kWh,3035,80.0,643.0,0.0
+Cellora,3W_4.8kWh,520,86.5,379.0,0.0
+Kyron,2W_2.1kWh,1385,60.5,402.0,100.0
+Kyron,3W_4.8kWh,253,81.3,381.0,20.9

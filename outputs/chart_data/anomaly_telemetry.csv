@@ -1,0 +1,4 @@
+telemetry_status,attempts,fail_pct
+ok,3693039.0,5.98
+partial,96278.0,6.2
+missing,25665.0,6.13

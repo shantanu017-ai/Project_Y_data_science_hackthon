@@ -1,0 +1,68 @@
+{
+  "model_sample": 16289,
+  "auc_ret90": 0.863,
+  "ret90_rate": 0.8905,
+  "ret60_rate": 0.8724,
+  "top_odds": [
+    {
+      "feature": "log_att",
+      "coef": 1.1509801334492022,
+      "odds_ratio": 3.1612898776726155
+    },
+    {
+      "feature": "fail30_rate",
+      "coef": -0.3142522776770433,
+      "odds_ratio": 0.7303347577605963
+    },
+    {
+      "feature": "is_3w",
+      "coef": 0.30649828531191503,
+      "odds_ratio": 1.3586591377986172
+    },
+    {
+      "feature": "is_partner",
+      "coef": -0.20089684353590803,
+      "odds_ratio": 0.8179968088601928
+    },
+    {
+      "feature": "first_city_Delhi NCR",
+      "coef": -0.17572799135446285,
+      "odds_ratio": 0.8388461257057863
+    },
+    {
+      "feature": "home_city_Delhi NCR",
+      "coef": -0.17572799135446285,
+      "odds_ratio": 0.8388461257057863
+    },
+    {
+      "feature": "first_city_Hyderabad",
+      "coef": -0.1660757619247959,
+      "odds_ratio": 0.8469820627672123
+    },
+    {
+      "feature": "home_city_Hyderabad",
+      "coef": -0.1660757619247959,
+      "odds_ratio": 0.8469820627672123
+    },
+    {
+      "feature": "home_city_Jaipur",
+      "coef": -0.16301477683400176,
+      "odds_ratio": 0.8495786342393854
+    },
+    {
+      "feature": "first_city_Jaipur",
+      "coef": -0.16301477683400176,
+      "odds_ratio": 0.8495786342393854
+    },
+    {
+      "feature": "first_city_Pune",
+      "coef": -0.1472546750413257,
+      "odds_ratio": 0.8630741459809228
+    },
+    {
+      "feature": "home_city_Pune",
+      "coef": -0.1472546750413257,
+      "odds_ratio": 0.8630741459809228
+    }
+  ]
+}

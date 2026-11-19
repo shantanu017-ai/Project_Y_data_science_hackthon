@@ -1,0 +1,58 @@
+{
+  "network": {
+    "attempts": 3814982,
+    "completed": 3586675,
+    "failures": 228307,
+    "failure_rate_pct": 5.98,
+    "revenue_inr": 229195296,
+    "cm_full_inr": 59288788,
+    "cm_pct_of_revenue": 25.9,
+    "swap_growth_multiple": 2.93,
+    "failure_growth_multiple": 5.98,
+    "cm_per_swap_jan": 6.2,
+    "cm_per_swap_jun": 20.47
+  },
+  "heat": {
+    "excess_failures": 39445,
+    "share_of_failures_pct": 17.3,
+    "gen1_charge_min_45c": 155.7,
+    "gen1_charge_min_cool": 88.0,
+    "gen1_inventory_45c": 3.1,
+    "gen3_charge_min_45c": 43.5,
+    "forgone_revenue_inr": 2520610
+  },
+  "battery": {
+    "kyron_2w_soh": 60.5,
+    "peer_2w_soh": 80.0,
+    "kyron_2w_retired_pct": 100.0,
+    "kyron_swaps_per_pack": 402,
+    "kyron_wear_per_swap": 30.79,
+    "peer_wear_per_swap": 9.56,
+    "avoidable_wear_inr": 12693538
+  },
+  "pricing_partners": {
+    "zipdrop_cm_per_swap": 6.17,
+    "network_cm_per_swap": 15.44,
+    "feastfly_total_cm": 8540204.0,
+    "zipdrop_revenue_giveup_inr": 2973970
+  },
+  "retention": {
+    "sample": 14668,
+    "base_d60_pct": 95.9,
+    "d60_zero_fail_pct": 96.9,
+    "d60_over20pct_fail_pct": 90.4,
+    "share_above_10pct_fail_pct": 15.6,
+    "adjusted_or_per_10pp": 0.64,
+    "or_ci95": [
+      0.571,
+      0.721
+    ],
+    "auc": 0.627
+  },
+  "support": {
+    "tickets": 44000,
+    "unresolved_pct": 0.1,
+    "avg_hours": 16.0,
+    "avg_csat": 3.56
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "riders_with_early_attempts": 16188,
+  "share_active_days_22_30_pct": 90.6,
+  "model_sample": 14668,
+  "base_d60_pct": 95.9,
+  "auc_d60": 0.627,
+  "fail10pp_odds_ratio": 0.64,
+  "fail10pp_or_ci95": [
+    0.547,
+    0.725
+  ],
+  "exposure_table": [
+    {
+      "bucket": "0%",
+      "riders": 5813,
+      "share_pct": 39.6,
+      "mean_fail_pct": 0.0,
+      "d60_pct": 96.9,
+      "d90_pct": 97.2
+    },
+    {
+      "bucket": "0-5%",
+      "riders": 2737,
+      "share_pct": 18.7,
+      "mean_fail_pct": 4.2,
+      "d60_pct": 96.0,
+      "d90_pct": 96.3
+    },
+    {
+      "bucket": "5-10%",
+      "riders": 3826,
+      "share_pct": 26.1,
+      "mean_fail_pct": 7.0,
+      "d60_pct": 96.0,
+      "d90_pct": 96.4
+    },
+    {
+      "bucket": "10-20%",
+      "riders": 1936,
+      "share_pct": 13.2,
+      "mean_fail_pct": 13.8,
+      "d60_pct": 93.5,
+      "d90_pct": 94.1
+    },
+    {
+      "bucket": ">20%",
+      "riders": 356,
+      "share_pct": 2.4,
+      "mean_fail_pct": 26.7,
+      "d60_pct": 90.4,
+      "d90_pct": 91.9
+    }
+  ]
+}
